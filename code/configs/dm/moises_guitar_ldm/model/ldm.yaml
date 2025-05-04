@@ -1,0 +1,5 @@
+audio_length_in_s: 5.0
+latent_shape:
+- 8
+- 16
+- 125

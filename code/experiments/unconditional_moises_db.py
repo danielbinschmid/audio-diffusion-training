@@ -9,7 +9,8 @@ from src.models.guided_diffusion_modules.GuidedDiffusionUnet import (
     GuidedDiffusionUnet,
     GuidedDiffusionUnetConfig,
 )
-from src.models.MelDDPM import MelDDPM, MelDDPMOutput, MelDDPMConfig, sample_noise
+from src.utils.noise_sampling import sample_noise
+from src.models.MelDDPM import MelDDPM, MelDDPMOutput, MelDDPMConfig
 from src.datasets import MoisesDBConfig, MoisesDBDataset
 from src.models.hifigan import HifiGAN, HifiGANConfig
 from torch.optim import AdamW

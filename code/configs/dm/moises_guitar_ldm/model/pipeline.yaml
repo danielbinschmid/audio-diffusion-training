@@ -1,0 +1,4 @@
+unet_cfg: "./unet.yaml"
+ldm_cfg: "./ldm.yaml"
+original_base_path: "./"
+ldm_ckpt: "/home/danielbinschmid/melddpm/data3/good_ckpt/guitar_ldm_v0/ctd_run/1c7a8b8c-44cc-4381-83af-1252512a904b/345.pth"
