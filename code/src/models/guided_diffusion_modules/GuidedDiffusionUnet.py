@@ -21,7 +21,7 @@ from .components import (
     next_multiple_of_m,
 )
 from typing import Optional
-from TorchJaekwon.Model.Diffusion.Editing import DeltaHBase
+from src.models.intermediate_activation_cache import IntermediateActivationCache
 
 
 class GuidedDiffusionUnetConfig(BaseModel):
@@ -76,8 +76,12 @@ class GuidedDiffusionUnet(nn.Module):
     The full UNet model with attention and embedding.
     """
 
+    intermediate_activation_cache: IntermediateActivationCache
+
     def __init__(self, cfg: GuidedDiffusionUnetConfig):
         super().__init__()
+
+        self.intermediate_activation_cache = IntermediateActivationCache()
 
         # map config to arguments
         self.cfg = cfg
@@ -262,7 +266,6 @@ class GuidedDiffusionUnet(nn.Module):
         x: torch.Tensor,
         gammas,
         class_label: torch.Tensor,
-        delta_h: Optional[DeltaHBase] = None,
         cache_intermediate_activations: bool = False,
         down_block_additional_residuals: Optional[List[torch.Tensor]] = None,
         mid_block_additional_residual: Optional[torch.Tensor] = None,
@@ -299,11 +302,8 @@ class GuidedDiffusionUnet(nn.Module):
             hs.append(h)
         h: torch.Tensor = self.middle_block(h, emb)
 
-        assert not cache_intermediate_activations
-
-        if self.cfg.delta_h_mode == "standard" and delta_h is not None:
-            delta_h_tensor = delta_h.forward(h=h, t_emb=emb, t=gammas)
-            h = h + delta_h_tensor
+        if cache_intermediate_activations:
+            self.intermediate_activation_cache.add_hspace_sample(h_sample=h, t=gammas)
 
         if mid_block_additional_residual is not None:
             h = h + mid_block_additional_residual
