@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#/bin/bash
-
-
 # basic flags
 EXEC_GENERATE_CFG=true
 EXEC_TRAIN=false
