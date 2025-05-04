@@ -3,11 +3,11 @@
 
 # basic flags
 EXEC_GENERATE_CFG=false
-EXEC_TRAIN=false
-EXEC_TEST=true
+EXEC_TRAIN=true
+EXEC_TEST=false
 
 # config
-CFG_PATH="./configs/moisesdb/unconditional_guitar_v1.yaml"
+CFG_PATH="./configs/unconditional_guitar_v1.yaml"
 
 function train() {
     python ./experiments/unconditional_moises_db.py \

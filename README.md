@@ -42,10 +42,11 @@ $ pip install -e .
 
 ### Datasets
 
-|Datasets|URL|
-|-|-|
-|MedleySolosDB|Download from [zenodo](https://zenodo.org/records/3464194)|
-|MoisesDB|Download from the homepage of [music.ai/research](https://music.ai/research/)|
+|Datasets|URL|Note|
+|-|-|-|
+|MedleySolosDB|Download from [zenodo](https://zenodo.org/records/3464194)||
+|MoisesDB|Download from the homepage of [music.ai/research](https://music.ai/research/)|The script will automatically create a training and test split. The split is documented using a csv file. To re-use the split, make sure to backup this csv file safely.|
+
 
 ### Mel-Spectrogram Based Diffusion Model
 

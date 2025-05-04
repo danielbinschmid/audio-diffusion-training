@@ -1,11 +1,11 @@
 ds_cfg:
-  ds_path: /path/to/data/datasets/moisesdb/moisesdb
+  ds_path: /home/danielbinschmid/dbschmid/moisesdb/moisesdb
   empty_waveform_thresshold: 0.001
   mode: '-'
   mono: true
-  precomputed_test_metadata_path: /path/to/data/datasets/moisesdb/metadata_backup_24-12-10/preprocessed_extracted_Guitar_test_metadata.csv
-  precomputed_train_metadata_path: /path/to/data/datasets/moisesdb/metadata_backup_24-12-10/preprocessed_extracted_Guitar_train_metadata.csv
-  recompute_metadata: false
+  precomputed_test_metadata_path: null # insert split csv file
+  precomputed_train_metadata_path: null # insert split csv file
+  recompute_metadata: false # for recomputing the split
   sample_rate: 16000
   stem_mode: Guitar
   step_length_in_s: 2.5
@@ -14,7 +14,7 @@ ds_cfg:
   - 0.8
   - 0.2
   window_length_in_s: 6.0
-from_epoch_idx: 139
+from_epoch_idx: 0 # for resuming training. Is needed for learning rate scheduling.
 inference_cfg:
   n_samples: 32
   out_folder: /path/to/data/out_media/uncond_moises_db_guitar_v1/v0/b8
@@ -27,15 +27,15 @@ melddpm_cfg:
   frequency_max: 8000.0
   frequency_min: 0.0
   hop_size: 160
-  mel_max_cfg_path: /path/to/code/configs/moisesdb/mel_max_guitar.json
-  mel_min_cfg_path: /path/to/code/configs/moisesdb/mel_min_guitar.json
+  mel_max_cfg_path: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/moises_guitar_mel/model/mel_max_guitar.json
+  mel_min_cfg_path: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/moises_guitar_mel/model/mel_min_guitar.json
   mel_size: 64
   n_categories: 0
   nfft: 1024
   sample_rate: 16000
 monitor_every_nth_epoch: 20
 n_samples_validation_inference: 10
-resume_from_ckpt: /path/to/data/models/good_checkpoints/moises_guitar_v1/checkpoints/431.pth
+resume_from_ckpt: null # for resuming training
 sampler_cfg:
   diffusers_scheduler_cfg:
     cfg_scale: 1.0
@@ -43,8 +43,8 @@ sampler_cfg:
   type: ddim
 trainer_cfg:
   batch_size: 16
-  checkpoint_path: /path/to/data/checkpoints/moises_db_v1
-  device: cuda:1
+  checkpoint_path: /home/danielbinschmid/dbschmid/moisesdb/moisesdb
+  device: cuda:0
   num_epochs: 2000
   num_workers_dataloader: 16
 unet_backbone_cfg:
@@ -100,10 +100,9 @@ vocoder_cfg:
   - 2
   - 2
   - 2
-vocoder_pretrained_weights: /path/to/data/models/pretrained_opensource/musicldm_hifigan/hifigan-ckpt(only
-  generator).ckpt
+vocoder_pretrained_weights: /home/danielbinschmid/audio-diffusion-training/data/hifigan/hifigan-ckpt(only generator).ckpt
 wandb_cfg:
-  experiment_name: moises_db_v1
-  log_dir: /path/to/data/logging/moises_db_v1
+  experiment_name: testing_moises_db_v1
+  log_dir: /home/danielbinschmid/audio-diffusion-training/data/logging
   mode: online
-  project_name: moises_db
+  project_name: testing_moises_db_v1
