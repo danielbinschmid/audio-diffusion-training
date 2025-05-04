@@ -105,7 +105,7 @@ class MusicLDMWrapper(LDMWrapper):
         return waveform
     
     def decode_latent(self, latents: torch.Tensor, audio_length_in_s: float) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        original_waveform_length = int(audio_length_in_s * self.vocoder.config.sampling_rate)
+        original_waveform_length = int(audio_length_in_s * self.pipe.vocoder.config.sampling_rate)
 
         latents = 1 / self.pipe.vae.config.scaling_factor * latents
         mel_spectrogram = self.pipe.vae.decode(latents).sample

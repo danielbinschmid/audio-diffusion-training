@@ -3,7 +3,7 @@ Runs with MusicLDM from diffusers
 """
 
 import os
-from typing import Optional
+from typing import Literal, Optional
 from uuid import uuid4
 from TorchJaekwon.Util.UtilAudio import UtilAudio
 from schmid_werkzeug.ml_workflow import get_sample_batches
@@ -28,7 +28,7 @@ def infer(
     num_steps: int,
     out_folder: str,
     device,
-    sampler_t: str = "dpm",
+    sampler_t: Literal['dpm', 'standard'] = "dpm",
 ):
     out_path = os.path.join(out_folder, str(uuid4()))
     os.makedirs(out_path, exist_ok=False)
@@ -44,7 +44,7 @@ def infer(
                 cond_shape=(batch_size,), condition_device=device,
             ),
             seed=batch_idx,
-        )
+        ).to(device) if sampler_t == 'dpm' else None
         sampler_cfg = SamplerConfig(
             type=sampler_t,
             diffusers_scheduler_cfg=DiffusersSchedulerConfig(num_steps=num_steps),
@@ -53,7 +53,7 @@ def infer(
         outp: AudioDiffusersOutput = sampler.sample(
             ddpm=ldm,
             cond=torch.tensor([[1] for i in range(batch_size)]),
-            x_start=x_start.to(device),
+            x_start=x_start,
         )
 
         audio_hat = outp.x

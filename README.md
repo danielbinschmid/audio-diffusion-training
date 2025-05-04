@@ -1,5 +1,8 @@
 # audio-diffusion-training
 
+This repository is a repository with minimal dependencies for training diffusion models for audio, based on 
+[TorchJaekwon](https://github.com/jakeoneijk/TorchJaekwon).
+
 This repository has submodules. Pull them explicitely using
 ```sh
 git submodule update --init --recursive
@@ -19,6 +22,13 @@ $ cd ../werkzeug
 $ pip install -e .
 ```
 
+### Diffusers Dependency
+
+If you want to run our pre-trained latent diffusion model, you need to install diffusers. For the LDM, diffusers is required because we took the VAE from there. In this case, run in addition:
+```sh
+$ pip install -r requirements_diffusers_extra.txt
+```
+
 ## Inference
 
 1. Use the command line tool for inference and the provided pre-trained models. Install it via 
@@ -35,7 +45,7 @@ $ pip install -e .
 |MedleySolosDB Unconditional|`dm medley uncond code/configs/dm/unconditional_medley_v0/infer.yaml`|U-Net: `melddpm_v0.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
 |MedleySolosDB Categorical|`dm medley cond code/configs/dm/cond_medley_v0/infer.yaml`|U-Net: `medley_cond.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
 |MoisesDB Mel|`dm moises mel code/configs/dm/moises_guitar_mel/infer.yaml`|U-Net: `moises_mel.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
-|MoisesDB LDM|||
+|MoisesDB LDM|`dm moises ldm code/configs/dm/moises_guitar_ldm/infer.yaml`||
 
 
 ## Training

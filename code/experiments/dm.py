@@ -1,7 +1,7 @@
 import experiments.dm_utils.uncategorical_medley as unc_medl
 import experiments.dm_utils.cond_medley as cond_medl
 import experiments.dm_utils.moises_guitar_melgram as moises_mel
-#import experiments.dm_utils.moises_guitar_ldm as moises_ldm
+import experiments.dm_utils.moises_guitar_ldm as moises_ldm
 from schmid_werkzeug.pydantic import load_cfg
 import argparse
 
@@ -27,11 +27,17 @@ def medley_command(args):
 def moises_command(args):
     mode = args.mode
     inference_cfg_path = args.inference_cfg
+
     if mode == "mel":
         inference_cfg: moises_mel.InferenceCfgUncond = load_cfg(
             inference_cfg_path, moises_mel.InferenceCfgUncond
         )
         moises_mel.inference(inference_cfg)
+    elif mode == "ldm":
+        inference_cfg: moises_ldm.InferenceCfgUncond = load_cfg(
+            inference_cfg_path, moises_ldm.InferenceCfgUncond
+        )
+        moises_ldm.inference(inference_cfg)
     else:
         raise ValueError(f"Invalid mode {mode}")
 

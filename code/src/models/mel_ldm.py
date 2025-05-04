@@ -24,7 +24,6 @@ class MelLDM(DDPM):
         self.sample_rate = sample_rate
         mldm_wrapper = MusicLDMWrapper(
             device=device,
-            collect_h_space=False,
             audio_length_in_s=self.cfg.audio_length_in_s,
             dtype=torch.float32,
         )

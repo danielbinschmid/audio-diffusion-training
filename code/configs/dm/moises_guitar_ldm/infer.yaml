@@ -1,7 +1,7 @@
-pipeline_cfg: /home/danielbinschmid/melddpm/code/configs/dm/moises_guitar_ldm/model/pipeline.yaml
-out: /home/danielbinschmid/melddpm/data/logging/inference_out/moises_guitar_ldm
-n_samples: 5000
+pipeline_cfg: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/moises_guitar_ldm/model/pipeline.yaml
+out: ./out
+n_samples: 10
 device: cuda:0
 max_bs: 32
 num_steps: 200
-sampler_type: dpm
+sampler_type: dpm # dpm or standard
