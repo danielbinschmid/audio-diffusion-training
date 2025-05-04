@@ -3,8 +3,8 @@ frame_size: 600
 frequency_max: 8000.0
 frequency_min: 0.0
 hop_size: 160
-mel_max_cfg_path: /home/danielbinschmid/melddpm/code/configs/dm/moises_guitar_mel/model/mel_max_guitar.json
-mel_min_cfg_path: /home/danielbinschmid/melddpm/code/configs/dm/moises_guitar_mel/model/mel_min_guitar.json
+mel_max_cfg_path: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/moises_guitar_mel/model/mel_max_guitar.json
+mel_min_cfg_path: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/moises_guitar_mel/model/mel_min_guitar.json
 mel_size: 64
 n_categories: 0
 nfft: 1024
