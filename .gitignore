@@ -1,0 +1,8 @@
+data
+*__pycache__*
+*.vscode
+*nopush*
+*.pdm-python
+*.python-version
+*.lock
+*.egg-info

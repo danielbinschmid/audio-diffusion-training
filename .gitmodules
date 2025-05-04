@@ -1,0 +1,6 @@
+[submodule "code/deps/TorchJaekwon"]
+	path = code/deps/TorchJaekwon
+	url = git@github.com:danielbinschmid/TorchJaekwon.git
+[submodule "code/deps/werkzeug"]
+	path = code/deps/werkzeug
+	url = git@github.com:danielbinschmid/werkzeug.git

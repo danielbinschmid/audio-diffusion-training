@@ -1,0 +1,4 @@
+tqdm==4.67.1
+git+https://github.com/moises-ai/moises-db.git
+pydantic==2.11.4
+matplotlib==3.10.1
