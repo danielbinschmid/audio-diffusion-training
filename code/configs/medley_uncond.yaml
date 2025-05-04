@@ -1,0 +1,90 @@
+ds_cfg:
+  base_folder: /path/to/data/datasets/medleysolosdb
+  guitar_only: false
+  mode: '-'
+  mono: true
+  sample_rate: 16000
+lr: 0.0008
+lr_decay_step_size: 40
+melddpm_cfg:
+  cls_embedding_dim: 4
+  frame_size: 297
+  frequency_max: 8000.0
+  frequency_min: 0.0
+  hop_size: 160
+  mel_max_cfg_path: /path/to/code/configs/medley_solos_db/mel_max.json
+  mel_min_cfg_path: /path/to/code/configs/medley_solos_db/mel_min.json
+  mel_size: 64
+  n_categories: 0
+  nfft: 1024
+  sample_rate: 16000
+monitor_every_nth_epoch: 10
+trainer_cfg:
+  batch_size: 16
+  checkpoint_path: /path/to/data/checkpoints/melddpm/mel_ddpm_v1
+  device: cuda
+  num_epochs: 2000
+  num_workers_dataloader: 16
+  repa_gamma: 1.0
+unet_backbone_cfg:
+  attn_res:
+  - 8
+  channel_mults:
+  - 1
+  - 2
+  - 4
+  - 8
+  conditioning_mechanism: unconditional
+  conv_resample: true
+  delta_h_mode: 'off'
+  dropout: 0.0
+  image_size: null
+  in_channel: 1
+  inner_channel: 64
+  num_head_channels: -1
+  num_heads: 1
+  num_heads_upsample: -1
+  out_channel: 1
+  res_blocks: 2
+  resblock_updown: true
+  use_checkpoint: false
+  use_fp16: false
+  use_new_attention_order: false
+  use_scale_shift_norm: true
+use_full_ds_for_training: false
+vocoder_cfg:
+  num_mels: 64
+  resblock_dilation_sizes:
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  resblock_kernel_sizes:
+  - 3
+  - 7
+  - 11
+  upsample_initial_channel: 1024
+  upsample_kernel_sizes:
+  - 16
+  - 16
+  - 8
+  - 4
+  - 4
+  upsample_rates:
+  - 5
+  - 4
+  - 2
+  - 2
+  - 2
+vocoder_pretrained_weights: /data/models/pretrained_opensource/musicldm_hifigan/hifigan-ckpt(only
+  generator).ckpt
+wandb_cfg:
+  experiment_name: mel_ddpm_v1
+  log_dir: /path/to/data/logging/medleysolosdb_melddpm/medleysolosdb_mel_ddpm_v1
+  mode: online
+  project_name: mel_ddpm
