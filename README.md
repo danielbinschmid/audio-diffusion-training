@@ -57,7 +57,7 @@ EXEC_GENERATE_CFG=true
 EXEC_TRAIN=false
 EXEC_TEST=false
 ```
-3. Set paths in the generated config file.
+3. Set paths in the generated config file. Make sure to set the path to the pre-trained neural vocoder.
 4. Run training by running e.g. `code/medley_uncond.sh` after setting
 ```sh
 # basic flags
