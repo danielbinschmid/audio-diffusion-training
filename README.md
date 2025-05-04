@@ -31,6 +31,7 @@ $ pip install -r requirements_diffusers_extra.txt
 
 ## Inference
 
+0. Download the model weights from our [googledrive](https://drive.google.com/drive/folders/1N2moVi40HwsjY5lcP5UEAzFbcs37lrLT?usp=sharing)
 1. Use the command line tool for inference and the provided pre-trained models. Install it via 
 ```sh
 $ cd code
