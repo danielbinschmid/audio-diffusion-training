@@ -34,7 +34,7 @@ $ pip install -e .
 |-|-|-|
 |MedleySolosDB Unconditional|`dm medley uncond code/configs/dm/unconditional_medley_v0/infer.yaml`|U-Net: `melddpm_v0.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
 |MedleySolosDB Categorical|`dm medley cond code/configs/dm/cond_medley_v0/infer.yaml`|U-Net: `medley_cond.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
-|MoisesDB Mel|||
+|MoisesDB Mel|`dm moises mel code/configs/dm/moises_guitar_mel/infer.yaml`|U-Net: `moises_mel.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
 |MoisesDB LDM|||
 
 
