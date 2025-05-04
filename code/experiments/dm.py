@@ -1,5 +1,5 @@
 import experiments.dm_utils.uncategorical_medley as unc_medl
-#import experiments.dm_utils.cond_medley as cond_medl
+import experiments.dm_utils.cond_medley as cond_medl
 #import experiments.dm_utils.moises_guitar_melgram as moises_mel
 #import experiments.dm_utils.moises_guitar_ldm as moises_ldm
 from schmid_werkzeug.pydantic import load_cfg
@@ -10,7 +10,12 @@ def medley_command(args):
     mode = args.mode
     inference_cfg_path = args.inference_cfg
 
-    if mode == "uncond":
+    if mode == "cond":
+        inference_cfg: cond_medl.InferenceCfg = load_cfg(
+            inference_cfg_path, cond_medl.InferenceCfg
+        )
+        cond_medl.inference(inference_cfg)
+    elif mode == "uncond":
         inference_cfg: unc_medl.InferenceCfg = load_cfg(
             inference_cfg_path, unc_medl.InferenceCfg
         )
