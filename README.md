@@ -49,7 +49,7 @@ $ pip install -e .
 
 ### Mel-Spectrogram Based Diffusion Model
 
-1. Compute normalisation scale of the mel-spectrogram by adapting `code/experiments/compute_melminmax.py`
+1. Compute normalisation scale of the mel-spectrogram by adapting `code/experiments/compute_melminmax.py`. Alternatively, re-use the scales pre-computed in the provided pre-trained models in folder `code/configs/dm`
 2. Generate config by running e.g. `code/medley_uncond.sh` after setting
 ```sh
 # basic flags
