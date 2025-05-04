@@ -1,0 +1,6 @@
+vocoder_cfg: "./vocoder.yaml"
+vocoder_weights: "/home/danielbinschmid/melddpm/data/models/pretrained_opensource/musicldm_hifigan/hifigan-ckpt(only generator).ckpt"
+unet_cfg: "./unet.yaml"
+weights: "/home/danielbinschmid/melddpm/data/models/good_checkpoints/categorical_medley_v1/checkpoints/507.pth"
+melddpm_cfg: "./melddpm.yaml"
+original_base_path: "./"

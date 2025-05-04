@@ -32,8 +32,8 @@ $ pip install -e .
 
 |Model|Inference Command|Required Weight Files|
 |-|-|-|
-|MedleySolosDB Unconditional|`dm medley uncond code/configs/dm/unconditional_medley_v0/infer.yaml`|U-Net: `melddpm_v0`, HifiGAN:`hifigan-ckpt(only generator)`|
-|MedleySolosDB Categorical|||
+|MedleySolosDB Unconditional|`dm medley uncond code/configs/dm/unconditional_medley_v0/infer.yaml`|U-Net: `melddpm_v0.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
+|MedleySolosDB Categorical|`dm medley cond code/configs/dm/cond_medley_v0/infer.yaml`|U-Net: `medley_cond.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
 |MoisesDB Mel|||
 |MoisesDB LDM|||
 
