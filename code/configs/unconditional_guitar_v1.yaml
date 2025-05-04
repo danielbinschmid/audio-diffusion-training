@@ -1,0 +1,109 @@
+ds_cfg:
+  ds_path: /path/to/data/datasets/moisesdb/moisesdb
+  empty_waveform_thresshold: 0.001
+  mode: '-'
+  mono: true
+  precomputed_test_metadata_path: /path/to/data/datasets/moisesdb/metadata_backup_24-12-10/preprocessed_extracted_Guitar_test_metadata.csv
+  precomputed_train_metadata_path: /path/to/data/datasets/moisesdb/metadata_backup_24-12-10/preprocessed_extracted_Guitar_train_metadata.csv
+  recompute_metadata: false
+  sample_rate: 16000
+  stem_mode: Guitar
+  step_length_in_s: 2.5
+  train_test_split_seed: 1
+  train_test_split_track_level:
+  - 0.8
+  - 0.2
+  window_length_in_s: 6.0
+from_epoch_idx: 139
+inference_cfg:
+  n_samples: 32
+  out_folder: /path/to/data/out_media/uncond_moises_db_guitar_v1/v0/b8
+  save_noise_latents_to_path: true
+lr: 0.0008
+lr_decay_step_size: 40
+melddpm_cfg:
+  cls_embedding_dim: 4
+  frame_size: 600
+  frequency_max: 8000.0
+  frequency_min: 0.0
+  hop_size: 160
+  mel_max_cfg_path: /path/to/code/configs/moisesdb/mel_max_guitar.json
+  mel_min_cfg_path: /path/to/code/configs/moisesdb/mel_min_guitar.json
+  mel_size: 64
+  n_categories: 0
+  nfft: 1024
+  sample_rate: 16000
+monitor_every_nth_epoch: 20
+n_samples_validation_inference: 10
+resume_from_ckpt: /path/to/data/models/good_checkpoints/moises_guitar_v1/checkpoints/431.pth
+sampler_cfg:
+  diffusers_scheduler_cfg:
+    cfg_scale: 1.0
+    num_steps: 20
+  type: ddim
+trainer_cfg:
+  batch_size: 16
+  checkpoint_path: /path/to/data/checkpoints/moises_db_v1
+  device: cuda:1
+  num_epochs: 2000
+  num_workers_dataloader: 16
+unet_backbone_cfg:
+  attn_res:
+  - 8
+  channel_mults:
+  - 1
+  - 2
+  - 4
+  - 8
+  conditioning_mechanism: unconditional
+  conv_resample: true
+  dropout: 0.0
+  image_size: null
+  in_channel: 1
+  inner_channel: 64
+  num_head_channels: -1
+  num_heads: 1
+  num_heads_upsample: -1
+  out_channel: 1
+  res_blocks: 2
+  resblock_updown: true
+  use_checkpoint: false
+  use_fp16: false
+  use_new_attention_order: false
+  use_scale_shift_norm: true
+vocoder_cfg:
+  num_mels: 64
+  resblock_dilation_sizes:
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  - - 1
+    - 3
+    - 5
+  resblock_kernel_sizes:
+  - 3
+  - 7
+  - 11
+  upsample_initial_channel: 1024
+  upsample_kernel_sizes:
+  - 16
+  - 16
+  - 8
+  - 4
+  - 4
+  upsample_rates:
+  - 5
+  - 4
+  - 2
+  - 2
+  - 2
+vocoder_pretrained_weights: /path/to/data/models/pretrained_opensource/musicldm_hifigan/hifigan-ckpt(only
+  generator).ckpt
+wandb_cfg:
+  experiment_name: moises_db_v1
+  log_dir: /path/to/data/logging/moises_db_v1
+  mode: online
+  project_name: moises_db
