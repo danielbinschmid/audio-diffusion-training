@@ -1,5 +1,5 @@
 ds_cfg:
-  base_folder: /path/to/data/datasets/medleysolosdb
+  base_folder: /home/danielbinschmid/dbschmid/melddpm/datasets/medleysolosdb
   guitar_only: false
   mode: '-'
   mono: true
@@ -12,8 +12,8 @@ melddpm_cfg:
   frequency_max: 8000.0
   frequency_min: 0.0
   hop_size: 160
-  mel_max_cfg_path: /path/to/code/configs/medley_solos_db/mel_max.json
-  mel_min_cfg_path: /path/to/code/configs/medley_solos_db/mel_min.json
+  mel_max_cfg_path: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/unconditional_medley_v0/model/mel_max.json
+  mel_min_cfg_path: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/unconditional_medley_v0/model/mel_min.json
   mel_size: 64
   n_categories: 0
   nfft: 1024

@@ -40,6 +40,13 @@ $ pip install -e .
 
 ## Training
 
+### Datasets
+
+|Datasets|URL|
+|-|-|
+|MedleySolosDB|Download from [zenodo](https://zenodo.org/records/3464194)|
+|MoisesDB|Download from the homepage of [music.ai/research](https://music.ai/research/)|
+
 ### Mel-Spectrogram Based Diffusion Model
 
 1. Compute normalisation scale of the mel-spectrogram by adapting `code/experiments/compute_melminmax.py`
