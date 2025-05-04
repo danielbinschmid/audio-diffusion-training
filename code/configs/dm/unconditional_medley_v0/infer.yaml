@@ -1,6 +1,6 @@
-pipeline_cfg: /home/danielbinschmid/melddpm/code/configs/dm/unconditional_medley_v0/model/pipeline.yaml
-out: /home/danielbinschmid/melddpm/data/logging/inference_out/uncond_medley
-n_samples_per_category: 10000
+pipeline_cfg: /home/danielbinschmid/audio-diffusion-training/code/configs/dm/unconditional_medley_v0/model/pipeline.yaml
+out: /home/danielbinschmid/audio-diffusion-training/data/out
+n_samples_per_category: 10
 device: cuda:0
 max_bs: 32
 num_steps: 200

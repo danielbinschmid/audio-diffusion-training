@@ -18,3 +18,8 @@ $ pip install -e .
 $ cd ../werkzeug
 $ pip install -e .
 ```
+6. Install cmd line tool
+```sh
+$ cd code
+$ pip install -e .
+```
