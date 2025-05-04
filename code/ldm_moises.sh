@@ -3,11 +3,11 @@
 
 # basic flags
 EXEC_GENERATE_CFG=false
-EXEC_TRAIN=false
-EXEC_INFER=true
+EXEC_TRAIN=true
+EXEC_INFER=false
 
 # config
-CFG_PATH="/home/danielbinschmid/melddpm/code/configs/moisesdb/ldm_v0.yaml"
+CFG_PATH="/home/danielbinschmid/audio-diffusion-training/code/configs/ldm_v0.yaml"
 
 function train() {
     python ./experiments/ldm_moisesdb.py \

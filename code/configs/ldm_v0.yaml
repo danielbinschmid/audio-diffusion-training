@@ -1,4 +1,4 @@
-device: cuda:2
+device: cuda
 do_repa: true
 ds_cfg:
   ds_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/moisesdb
@@ -7,9 +7,9 @@ ds_cfg:
   - 2
   mode: '-'
   mono: true
-  precomputed_test_metadata_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/monophonic_guitar/v1/preprocessed_extracted_Guitar_monophonic_test_metadata.csv
-  precomputed_train_metadata_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/monophonic_guitar/v1/preprocessed_extracted_Guitar_monophonic_train_metadata.csv
-  precomputed_val_metadata_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/monophonic_guitar/v1/preprocessed_extracted_Guitar_monophonic_val_metadata.csv
+  precomputed_test_metadata_path: null # insert with train test val split
+  precomputed_train_metadata_path: null # insert with train test val split
+  precomputed_val_metadata_path: null # insert with train test val split
   recompute_metadata: false
   sample_rate: 16000
   stem_mode: Guitar
@@ -21,8 +21,8 @@ ds_cfg:
   - 0.2
   window_length_in_s: 5.0
 logger_cfg:
-  experiment_name: ldm_filtered_data_resumed
-  log_dir: /home/danielbinschmid/melddpm/data3/logging/wandb
+  experiment_name: testing_ldm_filtered_data_resumed
+  log_dir: /home/danielbinschmid/audio-diffusion-training/data/logging
   mode: online
   project_name: repa
 mel_ldm_cfg:
@@ -38,14 +38,14 @@ mlp_cfg:
   out_feats: 1024
 monitor_every_nth_epoch: 5
 n_samples_inference: 20
-ldm_ckpt: /home/danielbinschmid/melddpm/data3/ckpt/1c7a8b8c-44cc-4381-83af-1252512a904b/241.pth
+ldm_ckpt: null
 optimiser_cfg:
   lr: 0.0001
   step_size_lr_scheduler: 40
 trainer_cfg:
   batch_size: 16
-  checkpoint_path: /home/danielbinschmid/melddpm/data3/ckpt
-  device: cuda:2
+  checkpoint_path: /home/danielbinschmid/audio-diffusion-training/data/checkpoints
+  device: cuda
   num_epochs: 2000
   num_workers_dataloader: 16
   repa_gamma: 0.1

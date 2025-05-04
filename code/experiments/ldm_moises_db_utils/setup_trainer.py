@@ -27,7 +27,6 @@ def setup_trainer(cfg: ExperimentConfig) -> DiffusionTrainer:
     ]
     ds = MoisesDBMonophonicDataset(cfg=cfg.ds_cfg, transforms=augmentations)
     ds.set_mode("train")
-
     unet = GuidedDiffusionUnet(cfg.unet_cfg).to(cfg.device)
 
     num_trainable_params = sum(p.numel() for p in unet.parameters() if p.requires_grad)
