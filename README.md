@@ -12,7 +12,7 @@ git submodule update --init --recursive
 
 1. Create venv
 2. `pip install --upgrade pip`
-3. Install torch `2.7.0`
+3. Install torch `2.7.0` (with torchaudio)
 4. `pip install -r requirements.txt`
 5. Install submodules
 ```sh
@@ -45,7 +45,7 @@ $ pip install -e .
 |MedleySolosDB Unconditional|`dm medley uncond code/configs/dm/unconditional_medley_v0/infer.yaml`|U-Net: `melddpm_v0.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
 |MedleySolosDB Categorical|`dm medley cond code/configs/dm/cond_medley_v0/infer.yaml`|U-Net: `medley_cond.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
 |MoisesDB Mel|`dm moises mel code/configs/dm/moises_guitar_mel/infer.yaml`|U-Net: `moises_mel.pth`, HifiGAN:`hifigan-ckpt(only generator)`|
-|MoisesDB LDM|`dm moises ldm code/configs/dm/moises_guitar_ldm/infer.yaml`||
+|MoisesDB LDM|`dm moises ldm code/configs/dm/moises_guitar_ldm/infer.yaml`|U-Net: `moises_ldm.pth`, VAE and vocoder: From `diffusers`|
 
 
 ## Training
@@ -79,3 +79,6 @@ EXEC_TEST=false
 
 
 ### Latent Diffusion Model
+
+1. Make sure that a pre-trained VAE and vocoder is prepared. If you want to train our `MelLDM`, make sure to have the dependencies in [requirements_diffusers_extra.txt](requirements_diffusers_extra.txt) installed.
+2. Train as described above.

@@ -1,0 +1,77 @@
+device: cuda:2
+do_repa: true
+ds_cfg:
+  ds_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/moisesdb
+  empty_waveform_thresshold: 0.01
+  exclude_label:
+  - 2
+  mode: '-'
+  mono: true
+  precomputed_test_metadata_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/monophonic_guitar/v1/preprocessed_extracted_Guitar_monophonic_test_metadata.csv
+  precomputed_train_metadata_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/monophonic_guitar/v1/preprocessed_extracted_Guitar_monophonic_train_metadata.csv
+  precomputed_val_metadata_path: /home/danielbinschmid/melddpm/data/datasets/moisesdb/monophonic_guitar/v1/preprocessed_extracted_Guitar_monophonic_val_metadata.csv
+  recompute_metadata: false
+  sample_rate: 16000
+  stem_mode: Guitar
+  step_length_in_s: 1.0
+  train_val_test_split_seed: 0
+  train_val_test_split_track_level:
+  - 0.8
+  - 0.0
+  - 0.2
+  window_length_in_s: 5.0
+logger_cfg:
+  experiment_name: ldm_filtered_data_resumed
+  log_dir: /home/danielbinschmid/melddpm/data3/logging/wandb
+  mode: online
+  project_name: repa
+mel_ldm_cfg:
+  audio_length_in_s: 5.0
+  latent_shape:
+  - 8
+  - 16
+  - 125
+mert_cfg:
+  embedding_idx: 12
+mlp_cfg:
+  in_feats: 1024
+  out_feats: 1024
+monitor_every_nth_epoch: 5
+n_samples_inference: 20
+ldm_ckpt: /home/danielbinschmid/melddpm/data3/ckpt/1c7a8b8c-44cc-4381-83af-1252512a904b/241.pth
+optimiser_cfg:
+  lr: 0.0001
+  step_size_lr_scheduler: 40
+trainer_cfg:
+  batch_size: 16
+  checkpoint_path: /home/danielbinschmid/melddpm/data3/ckpt
+  device: cuda:2
+  num_epochs: 2000
+  num_workers_dataloader: 16
+  repa_gamma: 0.1
+unet_cfg:
+  attn_res:
+  - 8
+  channel_mults:
+  - 1
+  - 2
+  - 4
+  - 8
+  - 16
+  conditioning_mechanism: unconditional
+  conv_resample: true
+  delta_h_mode: 'off'
+  dropout: 0.0
+  image_size: null
+  in_channel: 8
+  inner_channel: 64
+  num_head_channels: -1
+  num_heads: 1
+  num_heads_upsample: -1
+  out_channel: 8
+  res_blocks: 2
+  resblock_updown: true
+  use_checkpoint: false
+  use_fp16: false
+  use_new_attention_order: false
+  use_scale_shift_norm: true

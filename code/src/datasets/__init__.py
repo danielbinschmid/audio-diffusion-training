@@ -1,2 +1,3 @@
 from .moises_db import MoisesDBDataset, MoisesDBConfig
 from .medley_solo_db import MedleySolosDBDataset, MedleySolosDBDatasetConfig, MedleySolosDBConstants
+from .moises_db_monophonic import MoisesDBMonophonicDataset, MoisesDBMonophonicConfig
